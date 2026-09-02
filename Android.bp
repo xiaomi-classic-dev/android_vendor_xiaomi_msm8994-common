@@ -6,6 +6,32 @@ soong_namespace {
 }
 
 cc_prebuilt_library_shared {
+	name: "libaptX_encoder",
+	owner: "xiaomi",
+	srcs: ["proprietary/product/lib64/libaptX_encoder.so"],
+	compile_multilib: "64",
+	check_elf_files: false,
+	prefer: true,
+	product_specific: true,
+	strip: {
+		none: true,
+	},
+}
+
+cc_prebuilt_library_shared {
+	name: "libaptXHD_encoder",
+	owner: "xiaomi",
+	srcs: ["proprietary/product/lib64/libaptXHD_encoder.so"],
+	compile_multilib: "64",
+	check_elf_files: false,
+	prefer: true,
+	product_specific: true,
+	strip: {
+		none: true,
+	},
+}
+
+cc_prebuilt_library_shared {
 	name: "libqminvapi",
 	owner: "xiaomi",
 	strip: {
@@ -241,4 +267,3 @@ dex_import {
 	jars: ["proprietary/vendor/framework/qcrilhook.jar"],
 	soc_specific: true,
 }
-
