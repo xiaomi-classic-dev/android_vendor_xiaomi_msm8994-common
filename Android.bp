@@ -6,26 +6,6 @@ soong_namespace {
 }
 
 cc_prebuilt_library_shared {
-	name: "libqminvapi",
-	owner: "xiaomi",
-	strip: {
-		none: true,
-	},
-	target: {
-		android_arm: {
-			srcs: ["proprietary/vendor/lib/libqminvapi.so"],
-		},
-		android_arm64: {
-			srcs: ["proprietary/vendor/lib64/libqminvapi.so"],
-		},
-	},
-	compile_multilib: "both",
-	check_elf_files: false,
-	prefer: true,
-	soc_specific: true,
-}
-
-cc_prebuilt_library_shared {
 	name: "com.quicinc.cne.api@1.0",
 	owner: "xiaomi",
 	strip: {
@@ -146,28 +126,6 @@ cc_prebuilt_library_shared {
 }
 
 android_app_import {
-	name: "qcrilmsgtunnel",
-	owner: "xiaomi",
-	apk: "proprietary/priv-app/qcrilmsgtunnel/qcrilmsgtunnel.apk",
-	certificate: "platform",
-	dex_preopt: {
-		enabled: false,
-	},
-	privileged: true,
-}
-
-android_app_import {
-	name: "QtiTelephonyService",
-	owner: "xiaomi",
-	apk: "proprietary/vendor/app/QtiTelephonyService/QtiTelephonyService.apk",
-	certificate: "platform",
-	dex_preopt: {
-		enabled: false,
-	},
-	soc_specific: true,
-}
-
-android_app_import {
 	name: "datastatusnotification",
 	owner: "xiaomi",
 	apk: "proprietary/vendor/app/datastatusnotification/datastatusnotification.apk",
@@ -200,11 +158,50 @@ android_app_import {
 	soc_specific: true,
 }
 
-dex_import {
-	name: "QtiTelephonyServicelibrary",
+android_app_import {
+	name: "QtiTelephonyService",
 	owner: "xiaomi",
-	jars: ["proprietary/vendor/framework/QtiTelephonyServicelibrary.jar"],
-	soc_specific: true,
+	apk: "proprietary/product/app/QtiTelephonyService/QtiTelephonyService.apk",
+	certificate: "platform",
+	dex_preopt: {
+		enabled: false,
+	},
+	product_specific: true,
+}
+
+android_app_import {
+	name: "uceShimService",
+	owner: "xiaomi",
+	apk: "proprietary/product/app/uceShimService/uceShimService.apk",
+	certificate: "platform",
+	dex_preopt: {
+		enabled: false,
+	},
+	product_specific: true,
+}
+
+android_app_import {
+	name: "ims",
+	owner: "xiaomi",
+	apk: "proprietary/product/priv-app/ims/ims.apk",
+	certificate: "platform",
+	dex_preopt: {
+		enabled: false,
+	},
+	privileged: true,
+	product_specific: true,
+}
+
+android_app_import {
+	name: "qcrilmsgtunnel",
+	owner: "xiaomi",
+	apk: "proprietary/product/priv-app/qcrilmsgtunnel/qcrilmsgtunnel.apk",
+	certificate: "platform",
+	dex_preopt: {
+		enabled: false,
+	},
+	privileged: true,
+	product_specific: true,
 }
 
 dex_import {
@@ -232,13 +229,6 @@ dex_import {
 	name: "qcnvitems",
 	owner: "xiaomi",
 	jars: ["proprietary/vendor/framework/qcnvitems.jar"],
-	soc_specific: true,
-}
-
-dex_import {
-	name: "qcrilhook",
-	owner: "xiaomi",
-	jars: ["proprietary/vendor/framework/qcrilhook.jar"],
 	soc_specific: true,
 }
 
