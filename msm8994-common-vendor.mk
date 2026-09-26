@@ -373,6 +373,21 @@ PRODUCT_COPY_FILES += \
     vendor/xiaomi/msm8994-common/proprietary/vendor/lib64/vendor.qti.imsrtpservice@1.0_vendor.so:$(TARGET_COPY_OUT_VENDOR)/lib64/vendor.qti.imsrtpservice@1.0_vendor.so \
     vendor/xiaomi/msm8994-common/proprietary/vendor/radio/qcril_database/qcril.db:$(TARGET_COPY_OUT_VENDOR)/radio/qcril_database/qcril.db
 
+# Keep the IMS native dependency set beside the system privileged APK. The
+# product copies remain for the other QTI components that still use them.
+PRODUCT_COPY_FILES += \
+    vendor/xiaomi/msm8994-common/proprietary/product/lib64/com.qualcomm.qti.imscmservice@1.0.so:$(TARGET_COPY_OUT_SYSTEM)/lib64/com.qualcomm.qti.imscmservice@1.0.so \
+    vendor/xiaomi/msm8994-common/proprietary/product/lib64/lib-imscamera.so:$(TARGET_COPY_OUT_SYSTEM)/lib64/lib-imscamera.so \
+    vendor/xiaomi/msm8994-common/proprietary/product/lib64/lib-imsvideocodec.so:$(TARGET_COPY_OUT_SYSTEM)/lib64/lib-imsvideocodec.so \
+    vendor/xiaomi/msm8994-common/proprietary/product/lib64/lib-imsvt.so:$(TARGET_COPY_OUT_SYSTEM)/lib64/lib-imsvt.so \
+    vendor/xiaomi/msm8994-common/proprietary/product/lib64/lib-imsvtextutils.so:$(TARGET_COPY_OUT_SYSTEM)/lib64/lib-imsvtextutils.so \
+    vendor/xiaomi/msm8994-common/proprietary/product/lib64/lib-imsvtutils.so:$(TARGET_COPY_OUT_SYSTEM)/lib64/lib-imsvtutils.so \
+    vendor/xiaomi/msm8994-common/proprietary/product/lib64/libdiag_system.so:$(TARGET_COPY_OUT_SYSTEM)/lib64/libdiag_system.so \
+    vendor/xiaomi/msm8994-common/proprietary/product/lib64/libimscamera_jni.so:$(TARGET_COPY_OUT_SYSTEM)/lib64/libimscamera_jni.so \
+    vendor/xiaomi/msm8994-common/proprietary/product/lib64/libimsmedia_jni.so:$(TARGET_COPY_OUT_SYSTEM)/lib64/libimsmedia_jni.so \
+    vendor/xiaomi/msm8994-common/proprietary/product/lib64/librcc.so:$(TARGET_COPY_OUT_SYSTEM)/lib64/librcc.so \
+    vendor/xiaomi/msm8994-common/proprietary/product/lib64/vendor.qti.imsrtpservice@1.0.so:$(TARGET_COPY_OUT_SYSTEM)/lib64/vendor.qti.imsrtpservice@1.0.so
+
 PRODUCT_PACKAGES += \
     com.quicinc.cne.api@1.0 \
     com.quicinc.cne.constants@1.0 \
